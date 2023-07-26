@@ -2,8 +2,8 @@ import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity({ name: 'user_profiles' })
 export class Profile {
-    @PrimaryGeneratedColumn()
-    id: number;
+    @PrimaryGeneratedColumn('uuid')
+    id: string;
 
     @Column()
     firstname: string;
@@ -15,5 +15,5 @@ export class Profile {
     age: number;
 
     @Column()
-    dob: string;
+    dob: Date;
 }

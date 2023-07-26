@@ -32,15 +32,15 @@ export class UsersService {
         return this.userRepository.save(newUser);
     }
 
-    updateUser(id: number, updateUserDetails: UpdateUserParams) {
+    updateUser(id: string, updateUserDetails: UpdateUserParams) {
         return this.userRepository.update({ id }, { ...updateUserDetails });
     }
 
-    deleteUser(id: number) {
+    deleteUser(id: string) {
         return this.userRepository.delete({ id });
     }
 
-    async createUserProfile(id: number, userProfileDetails: CreateUserProfileParams) {
+    async createUserProfile(id: string, userProfileDetails: CreateUserProfileParams) {
         const user = await this.userRepository.findOneBy({ id });
         if (!user) 
             throw new HttpException(
@@ -54,7 +54,7 @@ export class UsersService {
         return this.userRepository.save(user);
     }
 
-    async createUserPost(id: number, userPostDetails: CreateUserPostParams) {
+    async createUserPost(id: string, userPostDetails: CreateUserPostParams) {
         const user = await this.userRepository.findOneBy({ id });
         if (!user) 
             throw new HttpException(
